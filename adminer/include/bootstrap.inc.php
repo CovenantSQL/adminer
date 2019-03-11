@@ -81,7 +81,7 @@ include "../adminer/include/driver.inc.php";
 //include "../adminer/drivers/elastic.inc.php";
 //include "../adminer/drivers/clickhouse.inc.php";
 include "../adminer/drivers/covenantsql.inc.php";
-//include "../adminer/drivers/mysql.inc.php"; // must be included as last driver
+include "../adminer/drivers/mysql.inc.php"; // must be included as last driver
 
 define("SERVER", $_GET[DRIVER]); // read from pgsql=localhost
 define("DB", $_GET["db"]); // for the sake of speed and size

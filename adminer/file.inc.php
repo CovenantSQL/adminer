@@ -6,7 +6,7 @@ if ($_GET["file"] == "favicon.ico") {
 	echo lzw_decompress(compile_file('../adminer/static/favicon.ico', 'lzw_compress'));
 } elseif ($_GET["file"] == "default.css") {
 	header("Content-Type: text/css; charset=utf-8");
-	echo lzw_decompress(compile_file('../adminer/static/default.css;../externals/jush/jush.css', 'minify_css'));
+	echo lzw_decompress(compile_file('../adminer/static/default.css;../externals/jush/jush.css;../designs/flat/adminer.css', 'minify_css'));
 } elseif ($_GET["file"] == "functions.js") {
 	header("Content-Type: text/javascript; charset=utf-8");
 	echo lzw_decompress(compile_file('../adminer/static/functions.js;static/editing.js', 'minify_js'));

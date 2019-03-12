@@ -1,0 +1,31 @@
+version: '3'
+services:
+        cql_adminer_adapter:
+                image: covenantsql/covenantsql:latest
+                container_name: cql_adminer_adapter
+                restart: always
+                logging:
+                        driver: 'json-file'
+                        options:
+                                max-size: '10m'
+                environment:
+                        COVENANT_ROLE: cli
+                        COVENANT_CONF: /etc/testnet_conf/config.yaml
+                volumes:
+                        - ./testnet_conf/:/etc/testnet_conf/
+                command: [ "-adapter", ":80" ]
+        cql_adminer:
+                image: covenantsql/adminer:latest
+                container_name: cql_adminer
+                restart: always
+                ports:
+                        - 11149:80
+                logging:
+                        driver: 'json-file'
+                        options:
+                                max-size: '10m'
+                links:
+                        - cql_adminer_adapter
+                environment:
+                        CQL_ADAPTER_SERVER: cql_adminer_adapter
+

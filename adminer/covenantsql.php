@@ -8,6 +8,12 @@ function adminer_object()
         {
             return true;
         }
+
+        public function name()
+        {
+            return "<a href='https://covenantsql.io'" . target_blank() . " id='h1'>CQL-Adminer</a>";
+        }
+
     }
 
     return new MyAdminer;

@@ -309,7 +309,7 @@ if (isset($_GET["covenantsql"])) {
     {
         $return = array();
         $primary = "";
-        foreach (get_rows("DESC ${table}") as $row) {
+        foreach (get_rows("DESC " . $table) as $row) {
             $name = $row["name"];
             $type = strtolower($row["type"]);
             $default = $row["dflt_value"];
@@ -451,7 +451,7 @@ if (isset($_GET["covenantsql"])) {
             return false;
         }
         if ($auto_increment) {
-            queries("UPDATE sqlite_sequence SET seq = ${auto_increment} WHERE name = " . q($name)); // ignores error
+            queries("UPDATE sqlite_sequence SET seq = " . $auto_increment . " WHERE name = " . q($name)); // ignores error
         }
         return true;
     }
@@ -548,7 +548,7 @@ if (isset($_GET["covenantsql"])) {
 
     function explain($connection, $query)
     {
-        return $connection->query("EXPLAIN ${query}");
+        return $connection->query("EXPLAIN " . $query);
     }
 
     function found_rows($table_status, $where)

@@ -15,4 +15,5 @@ Enjoy cql-adminer in http://x.x.x.x:11149
 ```
 
 Open the website and enter the 64-byte raw database id to open database web administration.
+
 *e.g. 16c421128eeb8bb6c35eb633a16d206edbd653ce52c52dcda0abb767d2bb9ed0*

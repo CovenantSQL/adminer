@@ -2,7 +2,12 @@
 
 Simple web admin for [CovenantSQL](https://github.com/CovenantSQL/CovenantSQL) database with one click.
 
-#### Usage:
+#### Prerequisites
+
+1. [Docker](https://docs.docker.com/install/)
+2. [docker-compose](https://docs.docker.com/compose/install/)
+
+#### Usage
 
 ```shell
 ./run.sh

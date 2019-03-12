@@ -17,6 +17,22 @@ function adminer_object()
             return "<a href='https://covenantsql.io'" . target_blank() . " id='h1'>CQL-Adminer</a>";
         }
 
+        public function loginForm()
+        {
+            echo "<table cellspacing='0' class='layout'>\n";
+            echo "<input type='hidden' name='auth[driver]' value='covenantsql'>\n";
+
+            if (!empty($_SERVER["CQL_ADAPTER_SERVER"])) {
+                echo "<input type='hidden' name='auth[server]' value='${_SERVER["CQL_ADAPTER_SERVER"]}'>";
+            } else {
+                echo $this->loginFormField('server', '<tr><th>' . lang('Server') . '<td>', '<input name="auth[server]" value="' . h(SERVER) . '"      title="hostname[:port]" placeholder="localhost:6000" autocapitalize="off">' . "\n");
+            }
+
+            echo $this->loginFormField('db', '<tr><th>' . lang('Database') . '<td>', '<input name="auth[db]" value="' . h($_GET["db"]) . '"       autocapitalize="off">' . "\n");
+            echo "</table>\n";
+            echo "<p><input type='submit' value='" . lang('Login') . "'>\n";
+            echo checkbox("auth[permanent]", 1, $_COOKIE["adminer_permanent"], lang('Permanent login')) . "\n";
+        }
     }
 
     return new MyAdminer;

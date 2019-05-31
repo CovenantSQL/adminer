@@ -9,11 +9,12 @@ services:
                         options:
                                 max-size: '10m'
                 environment:
-                        COVENANT_ROLE: cli
+                        COVENANT_ROLE: adapter
                         COVENANT_CONF: /etc/testnet_conf/config.yaml
+                        COVENANTSQL_ADAPTER_ADDR: 0.0.0.0:80
                 volumes:
-                        - ./testnet_conf/:/etc/testnet_conf/
-                command: [ "-adapter", ":80" ]
+                        - ~/.cql/private.key:/etc/testnet_conf/private.key
+                        - ~/.cql/config.yaml:/etc/testnet_conf/config.yaml
         cql_adminer:
                 image: covenantsql/adminer:latest
                 container_name: cql_adminer

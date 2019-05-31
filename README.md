@@ -10,13 +10,14 @@ Simple web admin for [CovenantSQL](https://github.com/CovenantSQL/CovenantSQL) d
 #### Usage
 
 ```shell
+git clone https://github.com/CovenantSQL/adminer.git && cd adminer
 ./run.sh
 ```
 
 Will get output:
 
 ```shell
-Enjoy cql-adminer in http://x.x.x.x:11149
+Enjoy cql-adminer in http://127.0.0.1:11149
 ```
 
 Open the website and enter the 64-byte raw database id to open database web administration.
